@@ -1,21 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hey.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaff's Website</title>
+    
+    <!-- Undertale/Deltarune fonts (Determination Mono for main text) -->
+    <link rel="stylesheet" href="https://undertalefonts.duodecima.technology/webfonts/stylesheet.css">
+    
+    <!-- Tab icon (Deltarune-inspired green soul/heart favicon) -->
+    <link rel="icon" href="tab_logo.png" type="image/png">
+    
     <style>
-        body { margin: 0; padding: 20px; font-family: sans-serif; }
-        textarea {
-            width: 100%;
-            height: 90vh;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
+
+@font-face {
+            font-family: 'Determination';
+            src: url('greater-determination-sans.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #000000;
+            color: #ffffff; /* Classic green text */
+            font-family: 'Determination', monospace;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 32px;
+            color: #00ff00; /* Brighter green for headings */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .projects-section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #00ff00;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background-color: #0a0a0a;
+            border: 2px solid #00ff00;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 1px solid #00ff41;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #00ff41;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+        }
+
+        .project-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .project-card a {
+            color: #00ff00;
+            text-decoration: none;
+            border: 1px solid #00ff00;
+            padding: 8px 16px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background-color: #00ff00;
+            color: #000000;
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="projects-section">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="natural_light.jpg" alt="Natural Light">
+                <h3>Natural Light</h3>
+                <p>A WIP project, more information will release after the first teaser.</p>
+                <a>Full Release (0% Completed)</a>
+            </div>
+            <div class="project-card">
+                <img src="deltaleaff_old.jpg" alt="DeltaLeaff">
+                <h3>DeltaLeaff</h3>
+                <p>A DELTARUNE fangame, where I would be Toby Fox and made DELTARUNE. Consisting of 25 total chapters, many references, and so much more. Currently, an outdated demo is out but I don't suggest you play it.</p>
+                <a>Full Release (0% Completed)</a>
+                <br>
+                <br>
+                <a href="https://gamebanana.com/mods/485775">Demo Version (Completed)</a>
+            </div>
+        </div>
+    </div>
 
     <h2>A good summary of my life online</h2>
     <p>Hey. It's me, Leaff. Fixed up my website! Now the pointless and worthless shit is gone. So honestly, I really wanted to talk about something really serious for a long while. Back in 2020, around when I was 12 years old, I had finally realized something. Nothing matter anymore. From that point forward, my brain kind of just went onto autopilot.</p>
