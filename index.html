@@ -1,269 +1,40 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LeaffyBoi — Home</title>
-<link rel="icon" type="image/png" href="assets/logo.png">
-<meta name="description" content="LeaffyBoi — home menu" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link href="assets/greater-determination-sans.ttf" rel="stylesheet">
-<style>
-@font-face {
-    font-family: 'Greater Determination Sans';
-    src: url('assets/greater-determination-sans.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-:root{
-  --bg:#000000;
-  --green:#00c853;
-  --yellow:#ffd400;
-  --white:#ffffff;
-  --muted:#9fb0b0;
-  --maxw:1100px;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%;margin:0}
-
-body{
-  font-family: 'Greater Determination Sans', Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background:var(--bg);
-  color:var(--white);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-
-header{position:fixed;left:0;right:0;top:0;padding:12px 18px;background:rgba(0,0,0,0.75);border-bottom:1px solid rgba(255,255,255,0.04);z-index:60}
-.header-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.brand img{height:50px;width:auto;border-radius:6px}
-.brand .title{font-weight:700;font-size:14px}
-.brand .sub{font-size:11px;color:var(--muted)}
-
-nav{margin-left:auto}
-ul.nav{display:flex;gap:8px;align-items:center;margin:0;padding:0;list-style:none}
-a.nav-link{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--white);font-weight:700;font-size:13px}
-a.nav-link:hover{color:var(--green)}
-a.nav-link.active{box-shadow:inset 0 -2px 0 var(--green)}
-
-main{max-width:var(--maxw);margin:110px auto 80px;padding:0 20px}
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:72px 22px}
-.title{font-size:44px;font-weight:800;letter-spacing:2px;margin:0}
-.lead{margin-top:14px;color:var(--muted);max-width:70ch;font-size:15px;line-height:1.6}
-
-.cta{margin-top:20px;display:flex;gap:12px}
-.btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)}
-.btn:hover{color:var(--green);border-color:var(--green);background:rgba(0,200,83,0.03)}
-
-.projects-preview{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.proj{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--white);text-decoration:none}
-.proj h4{margin:0 0 6px 0}
-.proj p{margin:0;color:var(--muted);font-size:13px}
-.proj:hover{border-color:rgba(0,200,83,0.18);background:rgba(0,200,83,0.03)}
-
-.level-section {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.level-info {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.exp-bar {
-  position: relative;
-  height: 18px;
-  width: 300px;
-  margin: 0 auto;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.08);
-  overflow: hidden;
-}
-
-.exp-fill {
-  height: 100%;
-  background: var(--green);
-  width: 0%;
-  transition: width 0.5s ease;
-}
-
-.exp-text {
-  margin-top: 6px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.ModelViewerWrapper {
-  display: flex;
-  justify-content: center; /* Centers horizontally */
-  margin: 20px 0;          /* Optional vertical spacing */
-}
-
-.ModelViewerWrapper iframe {
-  width: 800px;    /* Set your preferred width */
-  height: 450px;   /* Set your preferred height (16:9 ratio) */
-  border: none;    /* Removes iframe border */
-}
-
-footer a {
-  color: inherit;
-  text-decoration: none;
-}
-
-footer{text-align:center;margin-top:40px;color:var(--muted)}
-
-@media (max-width:880px){ ul.nav{display:none} }
-</style>
+    <title>Hey.</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: sans-serif; }
+        textarea {
+            width: 100%;
+            height: 90vh;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+    </style>
 </head>
-<body data-page="home">
+<body>
 
-<script>
-  const sounds = {
-    move: new Audio('assets/sounds/ui_move.wav'),
-    select: new Audio('assets/sounds/ui_select.wav'),
-    cant: new Audio('assets/sounds/ui_cant_select.wav')
-  };
-
-  function playSound(sound) {
-    if (sound && sound.play) {
-      sound.currentTime = 0;
-      sound.play();
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('mouseenter', () => playSound(sounds.move));
-      link.addEventListener('click', () => playSound(sounds.select));
-    });
-
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('mouseenter', () => playSound(sounds.move));
-      btn.addEventListener('click', () => playSound(sounds.select));
-    });
-  });
-</script>
-
-<header>
-<div class="header-inner">
-<a class="brand" href="./">
-<img src="assets/logo.png" alt="logo (replace assets/logo.png)">
-<div>
-<div class="title">LeaffyBoi</div>
-<div class="sub">Artist • Composer • Writer • Programmer • 3D Modeler • Animator • Game Developer</div>
-</div>
-</a>
-
-<nav aria-label="Main navigation">
-<ul class="nav">
-<li><a class="nav-link" data-nav="home" href="/">Home</a></li>
-<li><a class="nav-link" data-nav="projects" href="/projects/">Projects</a></li>
-<li><a class="nav-link" data-nav="faq" href="/faq/">FAQ</a></li>
-<li><a class="nav-link" data-nav="newsletters" href="/newsletters/">Newsletters</a></li>
-</ul>
-</nav>
-</div>
-</header>
-
-<main>
-<section class="hero">
-<h1 class="title">Home</h1>
-<p class="lead">Hiya my broskis!!! I'm Leaff, or LeaffyBoi, or ThatLeaffyBoi!</p>
-<br>
-<p>If you don't know who I am, all you need to know is I'm just a goofy guy who wants to make a cool DELTARUNE fangame! Obviously I'm not all that popular but y'know I don't think that stuff matters when it comes in context in doing the stuff you love :D</p>
-<br>
-<p>If it ain't all that obvious, I draw art, make music, write stories, program things, 3d model, animator in 2d and 3d, and am a game developer! Currently in the process of working on DeltaLeaff, my DELTARUNE fangame!!</p>
-<br>
-<h1 class="title">DeltaLeaff</h1>
-<p>Probably the main reason you're here. DeltaLeaff is a DELTARUNE fangame I've been working on since 7th grade!! Yeah that's a while ngl, but yeah I don't think that matters too much! There's been a few different iterations of it, only one actually released (the Demo Version) while the rest are basically distant memories. Many different beta concepts such as tracks, sprites, areas, and ideas have been drawn out or executed, but never released. As of recent, beta/old concepts have been forgotten about, as new concepts have been developed to balance out the gameplay. A link to the DeltaLeaff Demo Version is located <a href="./projects/">here</a> and updates (including other stuff) are located <a href="./updates/">here</a>. Below is a video of old gameplay from the first public release of the Deltaleaff Demo Verion!</p>
-
-<div class="ModelViewerWrapper">
-  <iframe 
-    loading="lazy" 
-    src="https://www.youtube.com/embed/yrTVcqYi9_M" 
-    allowfullscreen>
-  </iframe>
-</div>
-
-<div class="cta">
-<a class="btn" href="./projects/">View Projects</a>
-<a class="btn" href="./faq/">View FAQ</a>
-<a class="btn" href="./newsletters/">View Newsletters</a>
-</div>
-</section>
-
-<footer>
-  <section class="level-section" id="levelSection">
-  <div class="level-info">
-    <span id="levelLabel">LV 0</span>
-  </div>
-  <div class="exp-bar">
-    <div class="exp-fill" id="expFill"></div>
-  </div>
-  <div class="exp-text" id="expText"></div>
-</section>
-<br>
-<br>
-  <div>Made with love and <a href="/endurance/">endurance!</a></div>
-  <div><h6>© 2025 LeaffyBoi - I don't know lmao</h6></div>
-</footer>
-</main>
-
-<script>
-  (function() {
-    const page = document.body.dataset.page || 'home';
-    document.querySelectorAll('.nav-link').forEach(a => {
-      if(a.dataset.nav === page) a.classList.add('active');
-    });
-  })();
-</script>
-
-<script>
-(function() {
-  const birthYear = 2008; // change if needed
-  const birthMonth = 10;  // November = 10 (0-based index for Date)
-  const birthDay = 6;
-
-  const now = new Date();
-  const thisYear = now.getFullYear();
-
-  // Calculate current level
-  let level = thisYear - birthYear;
-  const birthdayThisYear = new Date(thisYear, birthMonth, birthDay);
-
-  if (now < birthdayThisYear) {
-    level -= 1; // haven't had birthday yet this year
-  }
-
-  // Find next birthday
-  let nextBirthday = birthdayThisYear;
-  if (now >= birthdayThisYear) {
-    nextBirthday = new Date(thisYear + 1, birthMonth, birthDay);
-  }
-
-  // Find last birthday
-  let lastBirthday = new Date(thisYear - 1, birthMonth, birthDay);
-  if (now >= birthdayThisYear) {
-    lastBirthday = birthdayThisYear;
-  }
-
-  // Calculate EXP progress
-  const totalTime = nextBirthday - lastBirthday;
-  const elapsed = now - lastBirthday;
-  const progress = Math.min(1, elapsed / totalTime);
-
-  // Update UI
-  document.getElementById("levelLabel").textContent = "LV " + level;
-  document.getElementById("expFill").style.width = (progress * 100) + "%";
-  document.getElementById("expText").textContent = 
-    Math.round(progress * 100) + "% to next level";
-})();
-</script>
-
+    <h2>A good summary of my life online</h2>
+    <p>Hey. It's me, Leaff. Fixed up my website! Now the pointless and worthless shit is gone. So honestly, I really wanted to talk about something really serious for a long while. Back in 2020, around when I was 12 years old, I had finally realized something. Nothing matter anymore. From that point forward, my brain kind of just went onto autopilot.</p>
+    <p>As time went on, I met a plethora of different people and interacted in an abundance of different servers across Discord. It was a crazy time to be alive, but it obviously wasn't without it's negatives.</p>
+    <p>Furthest back I could remember was 2023, around the time I actually decided to use Discord for the first time officially, back when I joined this Discord server called Vailen Empire, which a furry server mind you (This will be important.)</p>
+    <p>Looking back at it now, the people I met there were a different breed... Jesus Christ, degenerates would be an understatement describing the people there.</p>
+    <p>I met people like Cherry, Random, Andro, Swaggy, Charlie, Luner, Sheorsiv, IndoSama, Razor all around the span of 2022-2023. Lunar was a school friend of mine back in a different place, Charlie was someone we both met in Vailen Empire, Sheorsiv and IndoSama and Razor (disgusting guy, mind you) were people we met in Guilded, and damn there were so many others too.</p>
+    <p>But all of it was killing me. This was just the beginning of my hate for furries (before you go crazy, its a justifiable reason.) and where my brain permanently shut off. Because during this time? All of it was about sexual topics, no matter where I interacted with. Maybe it was hormones, maybe it was the people, whatever the case may be, but it was frequent, and I despised it because I fell victim to it. Majorly this stuff happened in both Discord (Vailen Empire mainly) and Guilded (Specific server owned by IndoSama), where, mind you, furries resided in. The SAME PLACES that didn't think the game 'Changed' was a fetish game. (Note: It's a fetish game, and you're disgusting if you play it or enjoy it REGARDLESS of what aspect.)</p>
+    <p>If I remember correctly, IndoSama was some weird protogen who had some beef with Razor, Razor was a .pdf file, Sheorsiv was some Ukrainian protogen(Nothing against Ukrainian people, just a weird guy) who drew weird art of my character and his character (I did the same, no excuse, but still.), Lunar who was a school friend who liked Madness Combat way too much (And turned me completely straight, because oh my GOD. That's a can of worms I don't want to open), Swaggy who was... An adult interating with a server full of minors frequently (who are furries, do you see a pattern with bad things always being furries? My hate began to stem from this.)... Cherry was some salty, childish adult who didn't know when to drop something, Random was just another person on the internet who actually had common sense and didn't indulge in such awful activities, and Andro who was probably the most unstable therapist friend out there? No shame to him, but god did he have problems and a big complex.</p>
+    <p>These people and the places they resided and took part in and represented, started to numb my brain. The salt on the wound. Oh, and don't forget, I was still a kid then. Dealing with all this stuff that a 14-15 year old shouldn't need to deal with in an online setting. So as I grew older, I began to slowly normalize the behavior I interacted with. And from this point, you're probably asking yourself; "Just turn off the device! How hard could it be? Go outside, call irl friends!" But my actual life was even worse. I won't get into it too much, but my mother emotionally neglected me, my step father abused me (not always physically, but it was there, like he was an unstable man in the house I lived in that I couldn't get rid of), so being online was my only outlet, and It didn't help that I developed all my talents because I wanted the validiation from people other than my parents because they never cared enough to give it to me.</p>
+    <p>But I'll get into the talent stuff later. Nearing the end of my friends and relationships (I was in a polyamorous relationship with Lunar, Charlie, Sheorsiv, and by god so many other people. It was the worst. I can speak from experience that polyamory is not real love. Real love is a thing shared between two unique people, that's what makes it special.), I had learned something; I am a horrible person. Every person to become my friend also end in speaking to me with hatred before the friendship ends. (if that makes sense). Following the arrival into 2024, I had interacted with the DELTARUNE fandom alot more, specifically the game DELTATRAVELER. During this, I met people like Prism, Ray, Commander, Chara, Frisk, Resident, Memenator, and a few other non-important ones. Prism, was just another dude, Ray, was just another girl, Commander was a dude who loved programming, Chara was... a very self-centered and ignorant person, but was still accepted by Prism and the others. Frisk was... Wow, they were weird. Resident was just a guy who flirted with Ray WAY to much around minors (Resident is a furry BY THE FUCKING WAY, OH MY GOD.), and Memeanator was idk he was just really fucking annoying. We slowly became friends as the past mistakes of my last friend group lingered in my mind. My talents began to take form, and I could draw, compose music, write stories, and program all in the same breath. Not the best, but I was getting better. As the new friend group formed, we decided we wanted to make a DELTATRAVELER fangame called DISCORDTRAVELER. This is where things started to fall apart. I was the lead developer, and I chose to keep the team small, because I didn't want the story spoiled. By my stubborness on wanting to prove myself as competent (taking all the work, doing all the things (music, art, story)) and wanting to make a beautiful story... I didn't know I was ruining my second friend group.</p>
+    <p>The friendship crumbled. It was no final thing, to me it was just a slow rust until the metal couldn't hold anymore and snapped. During mid 2025, Prism and Ray contact was cut by them being sick of me, and that was truly the end of that friend group.</p>
+    <p>However, as the metal of the second friend group was rusting, during the beginning of 2025, I had finally entered VRChat. Holy fuck. I only was on it because one of my friends who I had a crush on played it and I wanted to make a fantastic model for them so they would be proud of me and like me back. When I had to actually play the game because I needed enough playtime to actually upload avatars, I had encountered one specific person that broke through the entire numbness I had built as a solid defense. Luny.</p>
+    <p>One of the first people I've met on that game, Luny was... The average degenerate you'd meet on VRChat. I won't get into that too much for personal reasons, but it basically was a relationship that wasn't a real relationship, just the part where I got to have my turn dating her. Mind you, the friend group she associated with I never interacted with, I was always in the background of it. (And guess what? SHE WAS A FURRY TOO!!!!!!! DO YOU FUCKING SEE THAT??) That "relationship" ended in March 2025, and I had finally collapsed, I had actually reached a breaking point. Not from the build up of everything, but from that numbness barrier being broken down by the worst person imaginable after walking through it like she owned the place.</p>
+    <p>After that, everything subsided. No more friends, no more drama, and my brain finally shut off. The damage of everything, had permanently left me scarred from ever trusting people again. From ever interacting with new people again. I'm a terrible person, and that should be known. Unresolved irl trauma built up and influenced my interaction with people online, and with the many things i was exposed to, led me to develop into the kind of person I am now.</p>
+    <p>Now, my talents, the things I'm good at. Drawing? Making music? Programming? Writing? 3D Modeling? Game Development? All of these things are just a reflection of something. I want to be good enough, I want to be less human so there will be no human to blame for the wrongdoings I do, like insulting someone or being rude, but it doesn't matter anymore. I'm as much of a fuck up as I was 3 years ago.</p>
+    <p>For the reason I hate furries: All they talk about is sexual topics. And I was influenced with that at a young age, and it engraved into my personality. As of now? I don't care if you're a furry or not. I didn't mature, I just want furries out of my life because looking at them reminds me of the stuff I experienced.</p>
+    <p>But that's it. That's all I have. DeltaLeaff may never released, I've been wanting to detach myself from as many communities as a can (easy to do when they already don't like me).</p>
+    <p>I'm a bad person, from the eyes of people I've interacted with. January 1st, 2026, I think my brain won't want to interact with anyone ever again. I may detach myself from the internet entirely, or just do whatever I want to do.</p>
+    <p>On an ending note: The internet is the worst thing to ever happen to humanity.</p>
 </body>
 </html>
