@@ -1,3 +1,3 @@
 # Website for me, LeaffyBoi
 
-yeah it's just my goofy website! Yeah hopefully this'll be cool.
+A collection of everything. My entire life on the internet will be explained in it.
