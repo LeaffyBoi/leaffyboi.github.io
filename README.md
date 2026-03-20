@@ -1,3 +1,5 @@
 # Website for me, LeaffyBoi
 
-A collection of everything. My entire life on the internet will be explained in it.
+Salutations, fine people!! It's me, Leaff/LeaffyBoi!!!
+This is gonna be for my projects!! Yes, all of them!!
+I'll explain more later!
